@@ -3,57 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/styles/style.css">
-    <!-- Musíte pro script.js nastavit defer, díky tomu se kód čte až na konci. Díky tomu funguje querry selektory v js -->
+    <title>Updraft</title>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/styles/header.css">
     <script src="<?php echo get_template_directory_uri(); ?>/scripts/script.js" defer></script>
     <?php wp_head(); ?>
 </head>
 <body>
     <header>
-        <!-- Wrapper dáváme kvůli tomu, aby na velkých monitorech nebyl header moc roztáhlý
-             Obecně se bere maximální šířka cca 1300px
-        -->
         <div class="wrapper">
-            <!-- 
-                Zde je lepší si všechny sekce dát na itemy v divech, aby se dobře s nima dělalo přes display flex
-                Využívejte přehlednost v kódu pomocí class, pište první rodiče a pak potomka, přes stylus/SCSS můžeme vnořovat lépe selektory a kód je čistější
-             -->
-            <div class="wrapper-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/kamarad_oblasek.png" alt="">
-            </div>
-            <!--
-                Zde vytváříme ikonu hamburgeru, který je rozanimovaný
-                Je lepší si udělat čárky pomocí spanu, protože se pak dobře mohou rozanimovat
-                Nechme spany prázný, protože grafikcou podobu jím dáváme pomocí css
-            -->
-            <div class="wrapper-hamburger">
+            <a href="#" class="wrapper-logo" aria-label="Home">
+                <!-- Optionally add a logo image here -->
+                <span style="font-weight:700;font-size:1.5rem;color:#222;letter-spacing:1px;">Updraft</span>
+            </a>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+            </nav>
+            <button class="wrapper-hamburger" aria-label="Menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
-        <!-- 
-            Jedíný nav je mimo wrapper, důvod je takový, aby se na mobilním zařízení schovával pod wrapper.
-            Pokud bychom to chtěli pod header, aby se schovával, je to těžší varianta, má konflikt s headrem, pokud je nav jako absolute
-            Na PC verze se pak mění z-index a přizpůsobuje se na prostředek a itemy v navu pak ovládáme pomocí displey flexu
-         -->            
-        <nav>
-            <!--
-                # Je prázdný odkaz, bude nás odkazovat na jednu na stejnou stránku
-            -->
-            <a href="#">Home page</a>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-        </nav>
     </header>
-    <main>
-
-    </main>
-    <footer>
-
-    </footer>
+    <?php wp_footer(); ?>
 </body>
-<?php wp_footer(); ?>
 </html>
